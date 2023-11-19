@@ -1,0 +1,189 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Barlow", sans-serif;
+  font-family: "Open Sans", sans-serif;
+
+  font-family: "Roboto", sans-serif;
+}
+
+/* comienza detalle de layout */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "layout-header layout-header layout-header"
+    "order order order"
+    "main-area main-area main-area"
+    "footer-area footer-area footer-area";
+}
+
+.layout-header {
+  grid-area: layout-header;
+  font-family: "Playfair Display", serif;
+}
+
+.blue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  background-color: rgb(45, 52, 0);
+  color: white;
+}
+
+.together {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10%;
+}
+
+/* elimina el aside en mobile */
+.layout-aside {
+  display: none;
+}
+
+.burger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-right: 3%;
+}
+
+.order {
+  grid-area: order;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  background-color: lightgrey;
+}
+
+/* elimina todos los productos del desktop */
+.product-desktop {
+  display: none;
+}
+
+.layout-productside {
+  grid-area: main-area;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.product-description {
+  justify-items: center;
+}
+
+.paginacion {
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  justify-items: center;
+  margin: 5%;
+}
+
+.boton {
+  color: rgb(45, 52, 0);
+  padding: 10px;
+  border: 1px solid;
+  border-color: rgb(45, 52, 0);
+  cursor: pointer;
+}
+
+.boton_extremo_iz {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.boton_extremo_de {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.layout-footer {
+  grid-area: footer-area;
+  background-color: rgb(45, 52, 0);
+  color: white;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* de aca a arriba esta todo ok con el mobile ordenamiento desktop */
+
+@media (min-width: 576px) {
+  .layout {
+    grid-template-areas:
+      "layout-header order"
+      "layout-header main-area"
+      "footer-area main-area";
+
+    grid-template-columns: auto 90%;
+  }
+
+  /* aca se hacen los cambios de orden para la version desktop */
+
+  /* muestra el aside en la version desktop */
+  .layout-aside {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-weight: 100;
+  }
+
+  .blue {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  /* elimina la hamburguesa de la version desktop */
+  .burger {
+    display: none;
+  }
+
+  /* muestra los productos de la version desktop */
+
+  .layout-productside {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "producto producto producto producto"
+      "producto producto producto producto";
+  }
+
+  .product-desktop {
+    grid-area: producto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  /* elimina el producto unico de la version mobile */
+  .product-mobile {
+    display: none;
+  }
+
+  .layout-footer {
+    text-align: center;
+  }
+}

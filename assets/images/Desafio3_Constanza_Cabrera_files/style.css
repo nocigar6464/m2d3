@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* comienza detalle de layout */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "layout-header layout-header layout-header"
+    "main-area main-area main-area"
+    "footer-area footer-area footer-area";
+}
+
+.layout-header {
+  grid-area: layout-header;
+}
+
+.blue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: blue;
+  color: white;
+}
+
+.together {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10%;
+}
+
+.burger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 100%;
+  background-color: lightgrey;
+}
+
+.layout-productside {
+  grid-area: main-area;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin-top: 3%;
+}
+.product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-description {
+  justify-items: center;
+}
+
+.paginacion {
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  justify-items: center;
+  margin: 5%;
+}
+
+.boton {
+  color: blue;
+  padding: 10px;
+  border: 1px solid;
+  border-color: lightgray;
+  cursor: pointer;
+}
+
+.boton_extremo_iz {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.boton_extremo_de {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.layout-footer {
+  grid-area: footer-area;
+  background-color: darkblue;
+  color: white;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ordenamiento desktop */
+@media (min-width: 576px) {
+  div {
+    grid-template-areas:
+      "layout-header main-area"
+      "layout-header main-area"
+      "footer-area main-area";
+    grid-template-columns: auto 1fr;
+  }
+}
